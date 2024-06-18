@@ -1,1 +1,52 @@
-[{}]
+[
+	{
+		"name": "Longsword",
+		"image": "https://cdn11.bigcommerce.com/s-3pn7p1id/images/stencil/1280x1280/products/544/3239/DSC_2741__79747.1569964994.JPG?c=2?imbypass=on",
+		"description": "A double-edged sword with a blade length of around 40 inches, renowned for its balance and durability."
+	},
+	{
+		"name": "Battle Axe",
+		"image": "https://images.fun.com/products/38117/1-1/battle-axe-accessory-.jpg",
+		"description": "A heavy axe with a broad blade, designed for powerful chopping blows in battle, often double-headed."
+	},
+	{
+		"name": "War Hammer",
+		"image": "https://www.buyingasword.com/wp-content/uploads/2020/09/CL-222.jpg",
+		"description": "A blunt weapon with a hammerhead on one side and a spike on the other, effective against armored opponents."
+	},
+	{
+		"name": "Crossbow",
+		"image": "https://static.wikia.nocookie.net/ultimatepopculture/images/8/80/Armborst%2C_1500-tal_-_Livrustkammaren_-_106745.jpg/revision/latest?cb=20200122143504",
+		"description": "A ranged weapon that uses a horizontal bow mounted on a stock, known for its accuracy and power."
+	},
+	{
+		"name": "Dagger",
+		"image": "https://b2418165.smushcdn.com/2418165/wp-content/uploads/2019/04/ZS-211351.jpg?lossy=2&strip=1&webp=1",
+		"description": "A small, easily concealable knife with a sharp, pointed blade, ideal for close combat and stealth attacks."
+	},
+	{
+		"name": "Halberd",
+		"image": "https://www.theknightshop.com/media/catalog/product/cache/1/image/650x/c9dcfd7b7989a8e877246fb8f9b6b76e/m/8/m8501-medievalswisshalberd.jpg",
+		"description": "A pole weapon with an axe blade topped with a spike, effective in both slashing and thrusting attacks."
+	},
+	{
+		"name": "Mace",
+		"image": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/29020/1823385/main-image",
+		"description": "A blunt weapon with a heavy head on a solid shaft, used to deliver powerful crushing blows."
+	},
+	{
+		"name": "Flail",
+		"image": "https://images.squarespace-cdn.com/content/v1/5a8eea61f6576eea8d6e3ee3/1585083797291-YAKND80OFZL5ZBTY7568/2016.001.0054.jpg?format=1500w",
+		"description": "A weapon with a spiked head attached to a handle by a chain, capable of inflicting severe damage through flexible strikes."
+	},
+	{
+		"name": "Shortbow",
+		"image": "https://images.squarespace-cdn.com/content/v1/59aa8bee197aea4ad67f52ae/1504464708691-QDYU5K3HC898HOECIF0C/shortbow.png?format=1000w",
+		"description": "A smaller, more maneuverable bow ideal for quick shots and use in confined spaces, with a range of around 150 meters."
+	},
+	{
+		"name": "Claymore",
+		"image": "https://swordis.com/wp-content/uploads/2022/06/claymore-sword.jpg",
+		"description": "A large, two-handed Scottish sword with a blade length of around 55 inches, known for its impressive reach and cutting power."
+	}
+]
