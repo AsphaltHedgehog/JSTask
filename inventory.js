@@ -4,7 +4,7 @@ const refs = {
   page: document.querySelector('.container'),
 }
 
-const mockData = await fetch('/data/mockData.json')
+const mockData = await fetch('data/mockData.json')
   .then((response) => response.json())
   .catch((err) => console.error(err))
 
