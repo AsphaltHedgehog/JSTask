@@ -30,6 +30,7 @@ function onClick(e) {
     return
   }
 
+  document.activeElement.blur()
   openModal(e.target.dataset.itemId)
 }
 
