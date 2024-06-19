@@ -2,6 +2,11 @@ const refs = {
   inventoryListRef: document.querySelector('.inventory'),
 }
 
+
+const mockData = await fetch('./data/mockData.json')
+  .then((response) => response.json())
+  .catch((err) => console.error(err))
+
 const itemTemplate = (i) => {
   const { name, image } = i
   return `<li class="item">
@@ -11,11 +16,7 @@ const itemTemplate = (i) => {
   </li>`
 }
 
-const inventoryListRender = async () => {
-  const mockData = await fetch('./data/mockData.json')
-    .then((response) => response.json())
-    .catch((err) => console.error(err))
-
+function inventoryListRender() {
   const list = mockData.map(itemTemplate).join('')
   refs.inventoryListRef.innerHTML = list
 }
