@@ -14,14 +14,13 @@ body {
 
 .container {
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   padding: 20px;
 }
 
 .wrapper {
   background-color: #fff;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
 
@@ -34,6 +33,9 @@ h1 {
 .inventory {
   list-style-type: none;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
 }
 
 .item {
@@ -41,12 +43,14 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 
 .item__img {
   width: 100%;
-  height: auto;
+  height: 130px;
   display: block;
+  object-fit: contain;
 }
 
 .item__name {
@@ -64,13 +68,15 @@ h1 {
   color: #fff;
   border: none;
   cursor: pointer;
+  margin-top: 10px;
+
+  transition: background-color 0.3s ease;
 }
 
 .item__btn:hover {
   background-color: #0056b3;
 }
 
-/* Modal styles */
 .modal__backdrop {
   position: fixed;
   top: 0;
@@ -97,8 +103,6 @@ h1 {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: none;
-  border: none;
   width: 28px;
   height: 28px;
   border: 1px solid #111111;
@@ -125,6 +129,9 @@ h1 {
   display: block;
   border-radius: 8px;
   margin-top: 20px;
+
+  max-height: 400px;
+  object-fit: contain;
 }
 
 .modal_name {
@@ -134,14 +141,11 @@ h1 {
   margin-top: 10px;
 }
 
-.modal_name::first-letter {
-  text-transform: uppercase;
-}
-
-.modal__icon {
-  width: 24px;
-  height: 24px;
-  fill: black;
+.modal_text {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 10px;
 }
 
 .modal__icon:hover {
