@@ -99,7 +99,24 @@ h1 {
   right: 10px;
   background: none;
   border: none;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #111111;
+  border-radius: 14px;
   cursor: pointer;
+
+  background-image: url('./svg/icon-x.svg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+
+  transition: box-shadow 0.3s ease;
+}
+
+.modal__btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .modal_img {

@@ -66,12 +66,10 @@ const modalInstance = (itemInf) => {
   return `
   <div class="modal__backdrop">
     <div class="modal__window">
-      <button type="button" class="modal__btn">
-        <img class="modal__icon" src=${new URL('./svg/icon-x.svg', import.meta.url)} alt="close icon"/>
-      </button>
+      <button type="button" class="modal__btn"></button>
       <img class="modal_img" src='${image}' alt='${name} image'></img>
       <h2 class="modal_name">${name}</h2>
-      <p>${description}</p>
+      <p class="modal_text">${description}</p>
     </div>
   </div>`
 }
