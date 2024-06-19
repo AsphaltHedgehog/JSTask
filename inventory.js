@@ -30,16 +30,32 @@ function onClick(e) {
     return
   }
 
+  functionDisable()
   document.activeElement.blur()
   openModal(e.target.dataset.itemId)
 }
 
 // modal
 
+function functionDisable() {
+  let VerticalScroll = 0
+  VerticalScroll = window.scrollY || document.documentElement.scrollTop
+  document.body.classList.add('blockScroll')
+  window.onscroll = function () {
+    window.scrollTo(0, VerticalScroll)
+  }
+}
+
+function functionEnable() {
+  window.onscroll = function () {}
+  document.body.classList.remove('blockScroll')
+}
+
 const modalCloseLogic = () => {
   refs.backdrop.removeEventListener('click', onClickCloseModal)
   refs.backdrop.removeEventListener('keydown', onClickCloseModal)
   refs.backdrop.remove()
+  functionEnable()
 }
 
 const onClickCloseModal = (e) => {
