@@ -29,32 +29,30 @@ function onClick(e) {
     return
   }
 
-  functionDisable()
+  scrollDisable()
   document.activeElement.blur()
   openModal(e.target.dataset.itemId)
 }
 
 // modal
 
-function functionDisable() {
+function scrollDisable() {
   let VerticalScroll = 0
   VerticalScroll = window.scrollY || document.documentElement.scrollTop
-  document.body.classList.add('blockScroll')
   window.onscroll = function () {
     window.scrollTo(0, VerticalScroll)
   }
 }
 
-function functionEnable() {
+function scrollEnable() {
   window.onscroll = function () {}
-  document.body.classList.remove('blockScroll')
 }
 
 const modalCloseLogic = () => {
   refs.backdrop.removeEventListener('click', onClickCloseModal)
   refs.backdrop.removeEventListener('keydown', onClickCloseModal)
   refs.backdrop.remove()
-  functionEnable()
+  scrollEnable()
 }
 
 const onClickCloseModal = (e) => {
