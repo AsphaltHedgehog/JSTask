@@ -1,7 +1,6 @@
 const refs = {
   inventoryListRef: document.querySelector('.inventory'),
   backdrop: null,
-  modalCloseBtn: document.querySelector('.modal__btn'),
   page: document.querySelector('.container'),
 }
 
