@@ -1,10 +1,9 @@
 const refs = {
   inventoryListRef: document.querySelector('.inventory'),
-  backdrop: document.querySelector('.modal__backdrop'),
-  modal: document.querySelector('.modal__window'),
+  backdrop: null,
   modalCloseBtn: document.querySelector('.modal__btn'),
+  page: document.querySelector('.container'),
 }
-
 
 const mockData = await fetch('./data/mockData.json')
   .then((response) => response.json())
@@ -26,10 +25,62 @@ function inventoryListRender() {
 
 inventoryListRender()
 
-const onClick = (e) => {
-  if (e.target.className !== 'itemBtn') {
+function onClick(e) {
+  if (!e.target.classList.contains('item__btn')) {
     return
   }
+
+  openModal(e.target.dataset.itemId)
+}
+
+// modal
+
+const modalCloseLogic = () => {
+  refs.backdrop.removeEventListener('click', onClickCloseModal)
+  refs.backdrop.removeEventListener('keydown', onClickCloseModal)
+  refs.backdrop.remove()
+}
+
+const onClickCloseModal = (e) => {
+  if (e.key === 'Escape') {
+    modalCloseLogic()
+  }
+
+  switch (e.target.className) {
+    case 'modal__backdrop':
+      modalCloseLogic()
+      break
+
+    case 'modal__btn':
+      modalCloseLogic()
+      break
+
+    default:
+      return
+  }
+}
+
+const modalInstance = (itemInf) => {
+  const { name, image, description } = itemInf
+  return `
+  <div class="modal__backdrop">
+    <div class="modal__window">
+      <button type="button" class="modal__btn">TODO: add svg</button>
+      <img class="modal_img" src='${image}' alt='${name} image'></img>
+      <h2 class="modal_name">${name}</h2>
+      <p>${description}</p>
+    </div>
+  </div>`
+}
+
+function openModal(itemId) {
+  const item = mockData.find((item) => item.id === itemId)
+
+  refs.page.insertAdjacentHTML('afterend', modalInstance(item))
+  refs.backdrop = document.querySelector('.modal__backdrop')
+
+  refs.backdrop.addEventListener('click', onClickCloseModal)
+  document.addEventListener('keydown', onClickCloseModal)
 }
 
 refs.inventoryListRef.addEventListener('click', onClick)
