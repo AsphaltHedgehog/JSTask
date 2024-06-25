@@ -10,16 +10,38 @@ const mockData = await fetch('data/mockData.json')
 
 const itemTemplate = (i) => {
   const { name, image, id } = i
-  return `<li class="item">
-    <img class="item__img" src='${image}' alt='${name} image'></img>
-    <p class="item__name">${name}</p>
-    <button type='button' class="item__btn" data-item-id="${id}">Details</button>
-  </li>`
+
+  const li = document.createElement('li')
+  li.classList.add('item')
+
+  const img = document.createElement('img')
+  img.classList.add('item__img')
+  img.src = image
+  img.alt = `${name} image`
+  li.appendChild(img)
+
+  const p = document.createElement('p')
+  p.classList.add('item__name')
+  p.textContent = name
+  li.appendChild(p)
+
+  const button = document.createElement('button')
+  button.type = 'button'
+  button.classList.add('item__btn')
+  button.dataset.itemId = id
+  button.textContent = 'Details'
+  li.appendChild(button)
+
+  return li
 }
 
 function inventoryListRender() {
-  const list = mockData.map(itemTemplate).join('')
-  refs.inventoryListRef.innerHTML = list
+  const itemsFragment = document.createDocumentFragment()
+
+  mockData.forEach((i) => {
+    itemsFragment.appendChild(itemTemplate(i))
+  })
+  refs.inventoryListRef.appendChild(itemsFragment)
 }
 
 inventoryListRender()
@@ -76,21 +98,44 @@ const onClickCloseModal = (e) => {
 
 const modalInstance = (itemInf) => {
   const { name, image, description } = itemInf
-  return `
-  <div class="modal__backdrop">
-    <div class="modal__window">
-      <button type="button" class="modal__btn"></button>
-      <img class="modal_img" src='${image}' alt='${name} image'></img>
-      <h2 class="modal_name">${name}</h2>
-      <p class="modal_text">${description}</p>
-    </div>
-  </div>`
+
+  const backdrop = document.createElement('div')
+  backdrop.classList.add('modal__backdrop')
+
+  const windowDiv = document.createElement('div')
+  windowDiv.classList.add('modal__window')
+  backdrop.appendChild(windowDiv)
+
+  const button = document.createElement('button')
+  button.type = 'button'
+  button.classList.add('modal__btn')
+  windowDiv.appendChild(button)
+
+  const img = document.createElement('img')
+  img.classList.add('modal_img')
+  img.src = image
+  img.alt = `${name} image`
+  windowDiv.appendChild(img)
+
+  const h2 = document.createElement('h2')
+  h2.classList.add('modal_name')
+  h2.textContent = name
+  windowDiv.appendChild(h2)
+
+  const p = document.createElement('p')
+  p.classList.add('modal_text')
+  p.textContent = description
+  windowDiv.appendChild(p)
+
+  return backdrop
 }
 
 function openModal(itemId) {
   const item = mockData.find((item) => item.id === itemId)
 
-  refs.page.insertAdjacentHTML('afterend', modalInstance(item))
+  const modal = modalInstance(item)
+
+  refs.page.appendChild(modal)
   refs.backdrop = document.querySelector('.modal__backdrop')
 
   refs.backdrop.addEventListener('click', onClickCloseModal)
